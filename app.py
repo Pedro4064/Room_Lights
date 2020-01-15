@@ -6,12 +6,8 @@ import time
 app = Flask(__name__)
 file_path = '/home/pedro/Documents/Python/Room_Lights/status.json'
 
-app.route('/')
-def ok():
-
-    return 'ok'
     
-app.route("/updateStatus", methods = ['POST'])
+@app.route("/updateStatus", methods = ['POST'])
 def update():
 
     # global variable
@@ -45,7 +41,7 @@ def update():
             file.write(json.dumps(file_data, indent = 4))
 
 
-app.route("/getStatus", methods = ['GET'])
+@app.route("/getStatus", methods = ['GET'])
 def get_status():
 
     # global variable
