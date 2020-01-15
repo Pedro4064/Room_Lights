@@ -1,0 +1,25 @@
+{
+    "On": true,
+    "Sleep":
+    {
+        "Timer":true,
+        "Time": "8h30min"
+    },
+
+    "Settings":
+    {
+        "Wake Time":
+        {
+            "wake":true,
+            "time": "10h00min"
+        },
+
+        "color": 
+        {
+            "color_name":"white",
+            "color_option":["Warm_White","White","Red","Green","Blue"]
+        }
+    }
+
+
+}
