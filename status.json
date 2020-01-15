@@ -1,25 +1,23 @@
 {
     "On": true,
-    "Sleep":
-    {
-        "Timer":true,
-        "Time": "8h30min"
+    "color_name": "Green",
+    "Sleep": {
+        "Timer": true,
+        "Time": 30
     },
-
-    "Settings":
-    {
-        "Wake Time":
-        {
-            "wake":true,
-            "time": "10h00min"
-        },
-
-        "color": 
-        {
-            "color_name":"white",
-            "color_option":["Warm_White","White","Red","Green","Blue"]
+    "Wake Time": {
+        "wake": true,
+        "time": "7:00PM"
+    },
+    "Settings": {
+        "color": {
+            "color_option": {
+                "Warm_White": [],
+                "White": [],
+                "Red": [],
+                "Green": [],
+                "Blue": []
+            }
         }
     }
-
-
 }
