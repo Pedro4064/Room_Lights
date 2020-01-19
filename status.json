@@ -7,16 +7,36 @@
     },
     "Wake Time": {
         "wake": true,
-        "time": "7:00PM"
+        "time": "6:43AM"
     },
     "Settings": {
         "color": {
             "color_option": {
-                "Warm_White": [],
-                "White": [],
-                "Red": [],
-                "Green": [],
-                "Blue": []
+                "Warm_White": {
+                    "R": 200,
+                    "G": 200,
+                    "B": 255
+                },
+                "White": {
+                    "R": 255,
+                    "G": 255,
+                    "B": 255
+                },
+                "Red": {
+                    "R": 255,
+                    "G": 0,
+                    "B": 0
+                },
+                "Green": {
+                    "R": 0,
+                    "G": 255,
+                    "B": 0
+                },
+                "Blue": {
+                    "R": 0,
+                    "G": 0,
+                    "B": 255
+                }
             }
         }
     }
