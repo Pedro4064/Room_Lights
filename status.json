@@ -3,7 +3,7 @@
     "color_name": "Green",
     "Sleep": {
         "Timer": true,
-        "Time": 30
+        "Time": 2
     },
     "Wake Time": {
         "wake": true,
