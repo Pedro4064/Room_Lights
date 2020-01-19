@@ -138,15 +138,22 @@ class RaspberryPi():
                 # update the variables
                 self.__make_post_request(header = "Sleep", payload = {"Timer": False} )
             
+                self.timer_checked = False
 
         
-if __name__ == "__main__":
+# if __name__ == "__main__":
+counter = 0
 
-    # Instanciate the raspberry pi class
-    rPi = RaspberryPi()
+# Instanciate the raspberry pi class
+rPi = RaspberryPi()
+
+while True:
 
     # Read the file and update local variables
     rPi.update_status()
 
     # Check to see if the timer is on, and if it is check to see if it is time to turn the lights off
     rPi.check_timer()
+
+    # wait for 3 seconds before checking again
+    time.sleep(3)
