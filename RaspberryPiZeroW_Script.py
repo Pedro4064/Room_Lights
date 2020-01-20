@@ -1,4 +1,5 @@
 from datetime import datetime
+import RPi.GPIO as GPIO
 import requests
 import json
 import time
@@ -8,15 +9,28 @@ class RaspberryPi():
     def __init__(self):
 
         # The path for the json file
-        self.__file_path = '/Users/pedrocruz/Desktop/Programming/Python/Git/Room_lights/Room-Lights/status.json'
+        self.__file_path = '/home/pi/Desktop/Room_Lights/status.json'
 
         # The url to the flask application
-        self.url = ''
+        self.url = 'http://127.0.0.1:5000/updateStatus'
 
         # Status variables
         self.lights_on = True
         self.color_name = ''
         
+        # initialize the raspberry pi's GPIOs acorinding to the board's numbering
+        GPIO.setMode(GPIO.BOARD)
+
+        # Set the gpios as outputs
+        self.red_gpio   = 18
+        self.blue_gpio  = 11
+        self.green_gpio = 15
+
+        GPIO.setup(18, GPIO.OUT)
+        GPIO.setup(11, GPIO.OUT)
+        GPIO.setup(15, GPIO.OUT)
+
+
         self.timer_on = False
         self.timer_checked = False
         self.timer_turned_on = 0
@@ -26,9 +40,7 @@ class RaspberryPi():
         self.wake_lights_on = True
         self.wake_lights_time = ''
 
-        self.red   = 255
-        self.blue  = 255
-        self.green = 255
+        
 
     def __parse_json_data(self):
         
@@ -43,13 +55,35 @@ class RaspberryPi():
 
     def __control_lights(self, rbg_values):
 
-        # Raspberry pi commands to set the pwm duty cycles
-        pass 
+        # Raspberry pi commands to set the GPIOs HIGH or LOW
+
+        # Red chanel
+        if rbg_values['R'] != 255:
+
+            # turn it off
+            GPIO.output(self.red_gpio, False)
+        else:
+
+            # Turn on the red chanel
+            GPIO.output(self.red_gpio, True)
+
+        # Green chanel
+        if rbg_values['G'] != 255:
+            GPIO.output(self.green_gpio, False)
+        else:
+            GPIO.output(self.green_gpio, True)
+        
+        # Blue chanel
+        if rbg_values['B'] != 255:
+            GPIO.output(self.blue_gpio, False)
+        else:
+            GPIO.output(self.blue_gpio, True)
+        
 
     def __make_post_request(self, header:'The item you are sending', payload:'The json data'):
 
         # Format the payload
-        data = json.dumps({header: payload})
+        data = {header: payload}
 
         # Make the post request
         request = requests.post(self.url, json = data, headers = {'Content-type': 'application/json'})
@@ -141,8 +175,6 @@ class RaspberryPi():
                 self.timer_checked = False
 
         
-# if __name__ == "__main__":
-counter = 0
 
 # Instanciate the raspberry pi class
 rPi = RaspberryPi()
