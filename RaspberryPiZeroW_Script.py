@@ -173,7 +173,8 @@ class RaspberryPi():
                 
                 # update the variables
                 self.__make_post_request(header = "Sleep", payload = {"Timer": False} )
-            
+                self.__make_post_request(header = 'On', payload = False)
+                
                 self.timer_checked = False
 
         
