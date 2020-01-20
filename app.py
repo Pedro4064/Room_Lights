@@ -4,7 +4,7 @@ import json
 import time
 
 app = Flask(__name__)
-file_path = '/Users/pedrocruz/Desktop/Programming/Python/Git/Room_lights/Room-Lights/status.json'
+file_path = '/home/pi/Desktop/Room_Lights/status.json'
 
     
 @app.route("/updateStatus", methods = ['POST'])
@@ -71,4 +71,4 @@ def get_colors():
 
 if __name__ == "__main__":
 
-    app.run(debug = True)
+    app.run(debug = True, host = '192.168.15.13')
