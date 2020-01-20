@@ -187,8 +187,7 @@ class RaspberryPi():
 
             # Get the current time
             time = self.__get_current_time()
-            print(time['hour'])
-            
+
             # parse the time on the json file
             self.wake_lights_time = self.wake_lights_time.split(':')
 
