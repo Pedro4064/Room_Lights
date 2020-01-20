@@ -55,7 +55,7 @@ class RaspberryPi():
 
         # Raspberry pi commands to set the GPIOs HIGH or LOW
         print(json.dumps(rbg_values, indent=1))
-        
+
         # Red chanel
         if rbg_values['R'] != 255:
 
@@ -117,7 +117,7 @@ class RaspberryPi():
         self.wake_lights_time = self.json_data.get("Wake Time").get('time')
 
         
-        print(self.wake_lights_time)
+        # print(self.wake_lights_time)
         print(json.dumps(self.json_data, indent=4))
 
     def update_lights(self):
@@ -157,7 +157,7 @@ class RaspberryPi():
             if self.timer_off > 60:
                 self.timer_off = self.timer_off - 60
 
-
+            print('Ligts will be off by', self.timer_off)
                 
         # If the timer was checked and it is turned on, check the time, if it matches the one on the file, turn off the lights
         elif self.timer_checked:
