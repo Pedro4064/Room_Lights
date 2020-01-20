@@ -40,8 +40,6 @@ class RaspberryPi():
         self.wake_lights_on = True
         self.wake_lights_time = ''
 
-        
-
     def __parse_json_data(self):
         
         # Read the data in the file
@@ -56,7 +54,8 @@ class RaspberryPi():
     def __control_lights(self, rbg_values):
 
         # Raspberry pi commands to set the GPIOs HIGH or LOW
-
+        print(json.dumps(rbg_values, indent=1))
+        
         # Red chanel
         if rbg_values['R'] != 255:
 
@@ -79,7 +78,6 @@ class RaspberryPi():
         else:
             GPIO.output(self.blue_gpio, True)
         
-
     def __make_post_request(self, header:'The item you are sending', payload:'The json data'):
 
         # Format the payload
@@ -135,6 +133,10 @@ class RaspberryPi():
 
             # Change the GPIO values
             self.__control_lights(rbg_values = rbg_values)
+
+        else:
+
+            self.__control_lights(rbg_values={'R' : 0, 'B' : 0, 'G' : 0})
 
     def check_timer(self):
 
