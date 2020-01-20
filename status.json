@@ -1,43 +1,43 @@
 {
+    "Sleep": {
+        "Time": 30,
+        "Timer": true
+    },
     "Wake Time": {
         "wake": true,
         "time": "6:43AM"
     },
-    "Sleep": {
-        "Time": 2,
-        "Timer": true
-    },
-    "On": true,
     "color_name": "Green",
     "Settings": {
         "color": {
             "color_option": {
                 "Green": {
-                    "G": 255,
                     "R": 0,
-                    "B": 0
-                },
-                "Warm_White": {
-                    "G": 200,
-                    "R": 200,
-                    "B": 255
+                    "B": 0,
+                    "G": 255
                 },
                 "White": {
-                    "G": 255,
                     "R": 255,
-                    "B": 255
+                    "B": 255,
+                    "G": 255
                 },
-                "Blue": {
-                    "G": 0,
-                    "R": 0,
-                    "B": 255
+                "Warm_White": {
+                    "R": 200,
+                    "B": 255,
+                    "G": 200
                 },
                 "Red": {
-                    "G": 0,
                     "R": 255,
-                    "B": 0
+                    "B": 0,
+                    "G": 0
+                },
+                "Blue": {
+                    "R": 0,
+                    "B": 255,
+                    "G": 0
                 }
             }
         }
-    }
+    },
+    "On": false
 }

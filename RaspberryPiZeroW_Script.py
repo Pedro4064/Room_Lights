@@ -12,14 +12,14 @@ class RaspberryPi():
         self.__file_path = '/home/pi/Desktop/Room_Lights/status.json'
 
         # The url to the flask application
-        self.url = 'http://127.0.0.1:5000/updateStatus'
+        self.url = 'http://192.168.15.13:5000/updateStatus'
 
         # Status variables
         self.lights_on = True
         self.color_name = ''
         
         # initialize the raspberry pi's GPIOs acorinding to the board's numbering
-        GPIO.setMode(GPIO.BOARD)
+        GPIO.setmode(GPIO.BOARD)
 
         # Set the gpios as outputs
         self.red_gpio   = 18
@@ -186,6 +186,9 @@ while True:
 
     # Check to see if the timer is on, and if it is check to see if it is time to turn the lights off
     rPi.check_timer()
+
+    # update the lights 
+    rPi.update_lights()
 
     # wait for 3 seconds before checking again
     time.sleep(3)
