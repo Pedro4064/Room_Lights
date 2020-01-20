@@ -154,7 +154,7 @@ class RaspberryPi():
             self.timer_off = self.timer_turned_on + self.sleep_time
 
             # If it is grater than 60, it means it is in the next hour that the lights should be off, so subtaract 60 from it
-            if self.timer_off > 60:
+            if self.timer_off >= 60:
                 self.timer_off = self.timer_off - 60
 
             print('Ligts will be off by', self.timer_off)
@@ -174,7 +174,7 @@ class RaspberryPi():
                 # update the variables
                 self.__make_post_request(header = "Sleep", payload = {"Timer": False} )
                 self.__make_post_request(header = 'On', payload = False)
-                
+
                 self.timer_checked = False
 
         
