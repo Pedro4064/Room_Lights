@@ -177,7 +177,7 @@ class RaspberryPi():
 
                 # wait for the update to reach the server
                 timer.sleep(3)
-                
+
                 self.timer_checked = False
 
         
@@ -197,4 +197,4 @@ while True:
     rPi.update_lights()
 
     # wait for 3 seconds before checking again
-    time.sleep(3)
+    time.sleep(1)
