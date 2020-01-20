@@ -175,6 +175,9 @@ class RaspberryPi():
                 self.__make_post_request(header = "Sleep", payload = {"Timer": False} )
                 self.__make_post_request(header = 'On', payload = False)
 
+                # wait for the update to reach the server
+                timer.sleep(3)
+                
                 self.timer_checked = False
 
         
