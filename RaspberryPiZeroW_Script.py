@@ -199,6 +199,9 @@ class RaspberryPi():
 
                     # turn on the lights
                     self.__control_lights(rbg_values = {'R':255, 'G':255, 'B':255})
+
+                    # update the server
+                    self.__make_post_request(header='On', payload=True)
         
 
 # Instanciate the raspberry pi class
@@ -217,6 +220,6 @@ while True:
 
     # Check to see if it is wake up time already
     rPi.wake_up_lights()
-    
+
     # wait for 3 seconds before checking again
     time.sleep(1)
