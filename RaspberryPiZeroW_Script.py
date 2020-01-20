@@ -176,10 +176,29 @@ class RaspberryPi():
                 self.__make_post_request(header = 'On', payload = False)
 
                 # wait for the update to reach the server
-                timer.sleep(3)
+                time.sleep(3)
 
                 self.timer_checked = False
 
+    def wake_up_lights(self) :
+
+        # if the option to wake up is on, get the time which it should be turned on
+        if self.wake_lights_on:
+
+            # Get the current time
+            time = self.__get_current_time()
+
+            # parse the time on the json file
+            self.wake_lights_time = self.wake_lights_time.split(':')
+
+            # If the hours match, check the minutes
+            if time['hour'] == int(self.wake_lights_time[0]):
+
+                # Check the minutes
+                if time['minutes'] == int(self.wake_lights_time[1]):
+
+                    # turn on the lights
+                    self.__control_lights(rbg_values = {'R':255, 'G':255, 'B':255})
         
 
 # Instanciate the raspberry pi class
@@ -196,5 +215,8 @@ while True:
     # update the lights 
     rPi.update_lights()
 
+    # Check to see if it is wake up time already
+    rPi.wake_up_lights()
+    
     # wait for 3 seconds before checking again
     time.sleep(1)
