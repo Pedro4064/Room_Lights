@@ -212,11 +212,11 @@ while True:
     # Read the file and update local variables
     rPi.update_status()
 
-    # Check to see if the timer is on, and if it is check to see if it is time to turn the lights off
-    rPi.check_timer()
-
     # update the lights 
     rPi.update_lights()
+
+    # Check to see if the timer is on, and if it is check to see if it is time to turn the lights off
+    rPi.check_timer()
 
     # Check to see if it is wake up time already
     rPi.wake_up_lights()
